@@ -1,0 +1,33 @@
+template(name='settings')
+  .container
+    .row
+      .col-md-3.text-center
+        +gravatar context=currentUser size=128
+        h2 #{ username }
+        +profileNumbers currentUser
+
+      .col-md-9
+        +settingsForm currentUser
+
+template(name='settingsForm')
+  //- Takes currentUser as a context
+  form#settings-form(action='' role='form')
+    .form-group
+      label(for='email')
+        | Email address
+      input.form-control#email(type='email' placeholder='#{ emails }' disabled)
+    .form-group
+      label(for='username')
+        | Username
+      input.form-control#username(type='text' placeholder='#{ username }' disabled)
+    .form-group
+      label(for='realname')
+        | Real name
+      input.form-control#realname(type='text' placeholder='#{ profile.realname }')
+    .form-group
+      label(for='bio')
+        | About you
+      textarea.form-control#bio(rows='3')
+        | #{ profile.bio }
+    .form-group
+      input.btn.btn-success#save-profile(type='submit' value='Save')

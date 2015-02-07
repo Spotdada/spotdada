@@ -1,0 +1,11 @@
+template(name='profile')
+  //- (user, twatts) comes from router
+  .container
+    .row
+      .col-xs-12.text-center
+        +gravatar context=user size=128
+        h2 #{ user.username }
+          +followButton user
+        +profileNumbers user
+
+      +twattList twatts

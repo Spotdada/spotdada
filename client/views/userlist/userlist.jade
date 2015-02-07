@@ -1,0 +1,39 @@
+template(name="userlist")
+  .container
+    .row
+      .col-xs-12
+        h2
+          | Meet other Users
+    .row.user-list-container
+      each users
+        .media.col-md-6.col-lg-4
+          .media-left.media-top
+            a(href="{{ pathFor 'profile' }}")
+              +gravatar context=this size=128
+            .follow-btn-container
+              +followButton this
+
+          .media-body
+            a(href="{{ pathFor 'profile' }}")
+              h4 #{username}
+            p #{ profile.bio }
+
+
+template(name="searchUsers")
+  .container
+    .row
+      .col-xs-12
+        
+    .row.user-list-container
+      each users
+        .media.col-md-6.col-lg-4
+          .media-left.media-top
+            a(href="{{ pathFor 'profile' }}")
+              +gravatar context=this size=128
+            .follow-btn-container
+              +followButton this
+
+          .media-body
+            a(href="{{ pathFor 'profile' }}")
+              h4 #{username}
+            p #{ profile.bio }

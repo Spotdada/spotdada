@@ -1,0 +1,21 @@
+Template.header.helpers({
+  loggedIn: function() {
+    return !!Meteor.userId();
+  },
+  username: function() {
+    return Meteor.user() && Meteor.user().username;
+  }
+});
+
+Template.header.events({
+  'click #logout-btn': function(event, tpl) {
+    Meteor.logout();
+    Router.go('login');
+  }
+});
+
+Template.header.events({
+	"keyup .searching": function() {
+		Router.go('search');
+	},
+})

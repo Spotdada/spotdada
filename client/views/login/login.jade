@@ -1,0 +1,24 @@
+template(name="login")
+  .container
+    .row
+      .panel.panel-default.login-panel.center-block
+        .panel-heading
+          h2.panel-title.text-center
+            | Login for Awesomeness
+            sup &trade;
+
+        .panel-body
+          form#login-form.form-horizontal(action="" role="form")
+            .form-group
+              .col-xs-12
+                input#username.form-control.input-lg(type="text" placeholder="Username")
+            .form-group
+              .col-xs-12
+                input#password.form-control.input-lg(type="password" placeholder="Password")
+            .form-group
+              .col-xs-12
+                input.btn.btn-success.pull-right(type="submit" value="Login")
+        .panel-footer
+          | No account yet?
+          a(href="{{pathFor 'register'}}") Register now!
+          a.pull-right(href="{{pathFor 'resetPassword'}}") Forgot password?
